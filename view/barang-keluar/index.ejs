@@ -1,0 +1,156 @@
+
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Barang Keluar ATK</h3>
+    </div>
+    <form action="/barang-keluar/proses-keluar" method="post">
+       <div class="card-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="mb-3">
+                  <label class="form-label fw-bold text-capitalize"
+                    >Departemen</label
+                  >
+                  <select
+                    name="f_nama_departemen"
+                    class="form-select form-control"
+                    required
+                  >
+                    <option value="" selected>pilih Departemen</option>
+                    <% departemen.forEach(d => { %>
+                    <option value="<%= d.kode %>"><%= d.nama_departemen %></option>
+                    <% }) %>
+                  </select>
+                </div>
+              </div>
+      
+              <div class="col-lg-6">
+                <div class="mb-3">
+                  <label class="form-label fw-bold text-capitalize"
+                    >Lokasi Cabang</label
+                  >
+                  <select
+                    name="f_nama_lokasi"
+                    class="form-select form-control"
+                    required
+                  >
+                    <option value="" selected>pilih Lokasi</option>
+                    <% lokasi.forEach(lo => { %>
+                    <option value="<%= lo.kode %>"><%= lo.nama_lokasi %></option>
+                    <% }) %>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label class="form-label fw-bold text-capitalize"
+                      >Jenis Barang</label
+                    >
+                    <select
+                      name="f_nama_barang"
+                      class="form-select form-control"
+                      required
+                    >
+                      <option value="" selected>pilih Jenis Barang</option>
+                      <% jenis_barang.forEach(jb => { %>
+                      <option value="<%= jb.kode %>"><%= jb.nama_barang %></option>
+                      <% }) %>
+                    </select>
+                  </div>
+                </div>
+        
+                <div class="col-lg-3">
+                  <div class="mb-3">
+                    <label class="form-label fw-bold text-capitalize"
+                      >Jumlah Atk Keluar</label
+                    >
+                    <input
+                      type="number"
+                      class="form-control"
+                      name="f_stok_keluar"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-3">
+                  <div class="mb-3">
+                    <label class="form-label fw-bold text-capitalize">Satuan</label>
+                    <select name="f_satuan" class="form-select form-control" required>
+                      <option value="" selected>pilih Satuan</option>
+                      <% satuan.forEach(g => { %>
+                      <option value="<%= g.kode %>"><%= g.nama_satuan %></option>
+                      <% }) %>
+                    </select>
+                  </div>
+                </div>
+              </div>
+        
+              <div class="col-lg-12">
+                <div class="mb-3">
+                  <label class="form-label fw-bold text-capitalize"
+                    >Keterangan</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="f_keterangan"
+                    
+                  />
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary mt-4">Simpan</button>
+        
+            </div>
+          </div>
+       </div>
+      </form>
+
+      <div class="card">
+        <div class="card-body">
+          
+            <div class="col-12 pt-3">
+              <div class="row">
+                  <div class="col-lg-12">
+                      <table id="myTable" class="table table-hover">
+                          <thead>
+                              <tr>
+                                  <th>No</th>
+                                  <th>Nama Barang</th>
+                                  <th>Nama Departemen</th>
+                                  <th>Lokasi</th>
+                                  <th>Stok Keluar</th>
+                                  <th>satuan</th>
+                                  <th>Tanggal Masuk</th>
+                                  <th>Keterangan</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <% for( let i=0; i < stok_keluar.length; i++) { %>
+                                  <tr>
+                                      <td><%= i + 1 %></td>
+                                      <td><%= stok_keluar[i].nama_barang %></td>
+                                      <td><%= stok_keluar[i].nama_departemen %></td>
+                                      <td><%= stok_keluar[i].nama_lokasi %></td>
+                                      <td><%= stok_keluar[i].stok_keluar %></td>
+                                      <td><%= stok_keluar[i].nama_satuan %></td>
+                                      <td><%= stok_keluar[i].createad_at.toLocaleDateString('id-ID') %></td>
+                                      <td><%= stok_keluar[i].keterangan %></td>
+                                    
+                                      </td>
+                                  </tr>
+                              <% } %>
+                          </tbody>
+                          
+                      </table>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+</div>

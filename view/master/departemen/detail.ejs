@@ -1,0 +1,17 @@
+<h4 class="text-capitalize">Detail Jenis Barang</h4>
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><%= departemen[0].nama_departemen %></h5>
+                <p class="card-text">
+                    Kode: <%= departemen[0].kode %> <br>
+                    Description: <%= departemen[0].description %> <br>
+                    waktu pembuatan: <%= moment(departemen[0].created_at).format('DD MMMM YYYY HH:mm') %> <br>
+                    dibuat oleh: <%= departemen[0].created_nama %>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

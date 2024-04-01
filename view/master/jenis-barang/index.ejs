@@ -1,0 +1,60 @@
+<h4 class="text-capitalize">Master Jenis Barang</h4>
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-lg-6 text-end">
+                <a href="/master/jenis-barang/tambah" class="btn btn-sm btn-primary">
+                    <i class="fa fa-fw fa-plus-circle"></i> Jenis Barang
+                </a>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="col-12 pt-3">
+        <div class="row">
+            <div class="col-lg-12">
+                <table id="myTable" class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Kode Barang</th>
+                            <th>Nama Barang</th>
+                            <th>Description</th>
+                            <th>Created By</th>
+                            <th>option</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for( let i=0; i < jenis_barang.length; i++) { %>
+                            <tr>
+                                <td><%= i + 1 %></td>
+                                <td><%= jenis_barang[i].kode %></td>
+                                <td><%= jenis_barang[i].nama_barang %></td>
+                                <td><%= jenis_barang[i].description %></td>
+                                <td><%= jenis_barang[i].name %></td>
+                                <td>
+                                    <a href="/master/jenis-barang/detail/<%= jenis_barang[i].id %>" class="btn btn-sm btn-outline-info">
+                                        <i class="fa fa-fw fa-solid fa-eye"></i>
+                                    </a>
+                                    <a href="/master/jenis-barang/edit/<%= jenis_barang[i].id %>" class="btn btn-sm btn-outline-warning">
+                                        <i class="fa fa-fw fa-solid fa-edit"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <form action="/master/jenis-barang/delete/<%= jenis_barang[i].id %>" method="post">
+                                        <button type="submit" class="btn btn-sm btn-outline-danger"
+                                        onclick="return confirm('apakah anda yakin ingin hapus <%= jenis_barang[i].nama_barang %>?')">
+                                            <i class="fa fa-fw fa-solid fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                    
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

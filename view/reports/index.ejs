@@ -1,0 +1,29 @@
+
+<div class="row w-100">
+    <div class="col-12 card card-primary card-tabs">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a href="/reports/barang-masuk" class="nav-link <%= (uri_segment[2] == 'barang-masuk' ? 'active' : '') %>">
+                    Barang Masuk
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/reports/barang-keluar" class="nav-link <%= (uri_segment[2] == 'barang-keluar' ? 'active' : '') %>">
+                    Barang Keluar
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/reports/barang-akhir" class="nav-link <%= (uri_segment[2] == 'rekapitulasi' ? 'active' : '') %>">
+                    Rekapitulasi
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-12">
+        <div class="tab-content pt-3 ps-3">
+            <% if (typeof subkontent !== 'undefined') { %>
+                <%- include(subkontent) %>
+            <% } %>
+        </div>
+    </div>
+</div>

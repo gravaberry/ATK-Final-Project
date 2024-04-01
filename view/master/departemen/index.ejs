@@ -1,0 +1,60 @@
+<h4 class="text-capitalize">Master Departemen</h4>
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-lg-6 text-end">
+                <a href="/master/departemen/tambah" class="btn btn-sm btn-primary">
+                    <i class="fa fa-fw fa-plus-circle"></i> Departemen
+                </a>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="col-12 pt-3">
+        <div class="row">
+            <div class="col-lg-12">
+                <table id="myTable" class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Kode Departemen</th>
+                            <th>Nama Departemen</th>
+                            <th>Description</th>
+                            <th>Created By</th>
+                            <th>option</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for( let i=0; i < departemen.length; i++) { %>
+                            <tr>
+                                <td><%= i + 1 %></td>
+                                <td><%= departemen[i].kode %></td>
+                                <td><%= departemen[i].nama_departemen %></td>
+                                <td><%= departemen[i].description %></td>
+                                <td><%= departemen[i].name %></td>
+                                <td>
+                                    <a href="/master/departemen/detail/<%= departemen[i].id %>" class="btn btn-sm btn-outline-info">
+                                        <i class="fa fa-fw fa-solid fa-eye"></i>
+                                    </a>
+                                    <a href="/master/departemen/edit/<%= departemen[i].id %>" class="btn btn-sm btn-outline-warning">
+                                        <i class="fa fa-fw fa-solid fa-edit"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <form action="/master/departemen/delete/<%= departemen[i].id %>" method="post">
+                                        <button type="submit" class="btn btn-sm btn-outline-danger"
+                                        onclick="return confirm('apakah anda yakin ingin hapus <%= departemen[i].nama_departemen %>?')">
+                                            <i class="fa fa-fw fa-solid fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                    
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
