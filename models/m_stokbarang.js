@@ -110,7 +110,7 @@ module.exports =
                 left join departemens as g          on g.kode = b.departemen
                 left join lokasis as l          on l.kode = b.lokasi
                 left join satuans as s          on s.kode = b.satuan
-                
+                where stok_keluar < 0
                 order by id desc
                 limit 1;`)
                 return datas[0]
